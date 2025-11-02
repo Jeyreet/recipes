@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ES2022",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "outDir": "dist",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "paths": {
+      "controllers": ["./src/controllers"],
+      "controllers/*": ["./src/controllers/*"],
+
+      "middlewares": ["./src/middlewares"],
+      "middlewares/*": ["./src/middlewares/*"],
+
+      "routers": ["./src/routers"],
+      "routers/*": ["./src/routers/*"],
+
+      "services": ["./src/services"],
+      "services/*": ["./src/services/*"],
+
+      "types": ["./src/types"],
+      "types/*": ["./src/types/*"],
+
+      "utils": ["./src/utils"],
+      "utils/*": ["./src/utils/*"],
+
+      "pool": ["./src/pool"],
+      "permissions": ["./src/permissions"],
+      "errors": ["./src/errors"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "ms-vscode-remote.remote-wsl",
+    "irongeek.vscode-env",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint"
+  ]
+}

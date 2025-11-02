@@ -1,0 +1,30 @@
+{
+  "editor.tabSize": 2,
+  "explorer.confirmDelete": false,
+  "files.autoSave": "afterDelay",
+  "workbench.editor.empty.hint": "hidden",
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "explorer.confirmPasteNative": false,
+  "explorer.confirmDragAndDrop": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 120,
+  "typescript.tsserver.log": "off",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "*.env": "env",
+    "*.env.development": "env",
+    "*.env.production": "env"
+  }
+}

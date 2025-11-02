@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DB_URL")
+}
+
+model permissions {
+  id         Int      @id @default(autoincrement()) @db.UnsignedInt
+  name       String   @db.VarChar(20)
+  user_id    Int      @db.UnsignedInt
+  created_at DateTime @default(now()) @db.DateTime(0)
+  users      users    @relation(fields: [user_id], references: [id], map: "FK_permissions_users")
+
+  @@unique([user_id, name], map: "name_user_id")
+}
+
+model recipes {
+  id         Int      @id @default(autoincrement()) @db.UnsignedInt
+  author_id  Int      @db.UnsignedInt
+  name       String   @db.VarChar(50)
+  created_at DateTime @default(now()) @db.DateTime(0)
+  users      users    @relation(fields: [author_id], references: [id], map: "FK_recipes_users")
+
+  @@index([author_id], map: "FK_recipes_users")
+}
+
+model sessions {
+  id         Int      @id @default(autoincrement()) @db.UnsignedInt
+  user_id    Int      @db.UnsignedInt
+  token_hash String   @db.VarChar(60)
+  ip         String?  @db.VarChar(45)
+  os         String?  @db.VarChar(50)
+  browser    String?  @db.VarChar(50)
+  created_at DateTime @default(now()) @db.DateTime(0)
+  users      users    @relation(fields: [user_id], references: [id], map: "FK_sessions_users")
+
+  @@index([user_id], map: "FK_sessions_users")
+}
+
+model users {
+  id            Int           @id @default(autoincrement()) @db.UnsignedInt
+  login         String        @unique(map: "login") @db.VarChar(40)
+  password_hash String        @db.VarChar(60)
+  name          String?       @db.VarChar(40)
+  created_at    DateTime      @default(now()) @db.DateTime(0)
+  permissions   permissions[]
+  recipes       recipes[]
+  sessions      sessions[]
+}

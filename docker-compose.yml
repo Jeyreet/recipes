@@ -1,0 +1,34 @@
+services:
+  db:
+    image: mariadb:12.0.2
+    container_name: recipes-db
+    volumes:
+      - ./db:/var/lib/mysql
+      - ./server/migrations:/docker-entrypoint-initdb.d
+    environment:
+      MARIADB_USER: recipes
+      MARIADB_PASSWORD: recipes
+      MARIADB_DATABASE: recipes 
+      MARIADB_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    container_name: recipes-server
+    volumes:
+      - ./server:/app
+      - /app/node_modules
+    environment:
+      NODE_ENV: development
+      SERVER_PORT: 5000
+      DB_USER: recipes
+      DB_PASSWORD: recipes
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: recipes
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
