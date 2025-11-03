@@ -19,6 +19,11 @@ const transformError = (i: any) => {
       return {
         param: transformPath(i.path),
       }
+    case 'invalid_format':
+      return {
+        param: transformPath(i.path),
+        pattern: i.pattern,
+      }
     case 'too_big':
       return {
         param: transformPath(i.path),
