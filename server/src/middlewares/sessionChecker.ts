@@ -1,15 +1,17 @@
 import { AuthError } from 'errors'
-import { NextFunction, Request, Response } from 'express'
+import { NextFunction, Request, RequestHandler, Response } from 'express'
 import { checkSession } from 'utils'
 
-const sessionChecker = (neededAuth: boolean) => async (req: Request, res: Response, next: NextFunction) => {
-  const session = await checkSession(req)
+const sessionChecker =
+  (neededAuth: boolean, onFailure?: RequestHandler) => async (req: Request, res: Response, next: NextFunction) => {
+    const session = await checkSession(req)
 
-  if ((neededAuth && !session) || (!neededAuth && session)) throw new AuthError(neededAuth)
+    res.locals.session = session
 
-  res.locals.session = session
-
-  next()
-}
+    if (neededAuth !== Boolean(session)) {
+      if (onFailure) await onFailure(req, res, next)
+      else throw new AuthError(neededAuth)
+    } else next()
+  }
 
 export { sessionChecker }
