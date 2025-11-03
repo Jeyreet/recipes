@@ -16,7 +16,7 @@ app.use(useragent.express())
 app.use(cookieParser())
 app.use(express.json())
 app.use(dataMerger)
-app.use('/api', apiRouter)
+app.use('/', apiRouter)
 app.use(errorHandler)
 
 app.listen(SERVER_PORT, () => console.log(`Server running on port ${SERVER_PORT}`))
