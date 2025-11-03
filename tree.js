@@ -5,7 +5,7 @@ function buildTree(dir, prefix) {
   prefix = prefix || "";
   const items = fs
     .readdirSync(dir)
-    .filter((f) => ![".vscode", "data", "node_modules", "dist"].includes(f));
+    .filter((f) => ![".git", ".vscode", "db", "node_modules", "dist"].includes(f));
 
   items.forEach((item, index) => {
     const fullPath = path.join(dir, item);
