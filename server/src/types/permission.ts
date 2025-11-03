@@ -1,5 +1,5 @@
 import { permissions } from 'permissions'
-import { BaseRow, id } from 'types'
+import { BaseRow } from 'types'
 import z from 'zod'
 
 type Permission = BaseRow<{

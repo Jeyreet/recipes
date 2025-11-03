@@ -1,5 +1,4 @@
-import { BaseRow, id } from 'types'
-import z from 'zod'
+import { BaseRow } from 'types'
 
 type Session = BaseRow<{
   userId: number
@@ -9,11 +8,4 @@ type Session = BaseRow<{
   browser?: string
 }>
 
-const session = {
-  tokenHash: z.string(),
-  ip: z.string().optional(),
-  os: z.string().optional(),
-  browser: z.string().optional(),
-}
-
-export { Session, session }
+export { Session }
