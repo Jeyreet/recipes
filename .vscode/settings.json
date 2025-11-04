@@ -26,5 +26,13 @@
     "*.env": "env",
     "*.env.development": "env",
     "*.env.production": "env"
+  },
+  "files.exclude": {
+    "**/*.module.scss.d.ts": true,
+    "**/node_modules": true,
+    "db": true,
+    "**/package-lock.json": true,
+    "**/eslint.config.cjs": true,
+    "**/prettier.config.cjs": true,
   }
 }
