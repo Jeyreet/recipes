@@ -1,0 +1,13 @@
+.centerer {
+  display: flex;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.menuPinned {
+  margin-left: var(--openedMenuWidth);
+}
+
+.content {
+  width: calc(100vw - var(--openedMenuWidth));
+}

@@ -1,0 +1,30 @@
+body,
+body * {
+  box-sizing: border-box;
+  margin: 0;
+  box-shadow: none;
+  outline: none;
+  outline-offset: 0;
+  border: none;
+  background: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  font-variant-numeric: tabular-nums;
+  color: inherit;
+  hyphens: auto;
+  list-style: none;
+  text-decoration: none;
+  overflow-wrap: break-word;
+  resize: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+svg * {
+  transition-property: fill, stroke;
+}
+
+button {
+  cursor: pointer;
+}

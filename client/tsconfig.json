@@ -1,0 +1,49 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "assets/*": ["./src/assets/*"],
+      "images/*": ["./src/assets/images/*"],
+      "icons/*": ["./src/assets/images/icons/*"],
+      "fonts*": ["./src/assets/fonts/*"],
+      "styles/*": ["./src/styles/*"],
+
+      "components": ["./src/components"],
+      "components/*": ["./src/components/*"],
+
+      "App": ["./src/components/App"],
+      "App/*": ["./src/components/App/*"],
+
+      "ui": ["./src/ui"],
+      "ui/*": ["./src/ui/*"],
+
+      "blocks": ["./src/blocks"],
+      "blocks/*": ["./src/blocks/*"],
+
+      "pages": ["./src/pages"],
+      "pages/*": ["./src/pages/*"],
+
+      "types": ["./src/types"],
+      "types/*": ["./src/types/*"],
+
+      "utils": ["./src/utils"],
+      "utils/*": ["./src/utils/*"],
+
+      "hooks": ["./src/hooks"],
+      "hooks/*": ["./src/hooks/*"]
+    }
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

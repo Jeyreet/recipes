@@ -1,0 +1,14 @@
+:root {
+  --hue-accent: 210deg;
+  --color-accent: oklch(50% 0.5 var(--hue-accent));
+
+  --color-text: oklch(0% 0 0deg);
+  --color-app-background: oklch(80% 0 0deg);
+  --color-menu-background: oklch(90% 0 0deg);
+
+  @media (prefers-color-scheme: dark) {
+    --color-text: oklch(100% 0 0deg);
+    --color-app-background: oklch(15% 0 0deg);
+    --color-menu-background: oklch(20% 0 0deg);
+  }
+}

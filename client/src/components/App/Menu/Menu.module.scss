@@ -1,0 +1,113 @@
+@use 'styles/mixins' as *;
+
+.menu {
+  --closedSize: 48px;
+  --margin: 16px;
+  --openedWidth: var(--openedMenuWidth);
+  --border-width: 2px;
+
+  background-color: var(--color-menu-background);
+  position: fixed;
+  left: var(--margin);
+  top: var(--margin);
+  width: calc(var(--closedSize));
+  height: var(--closedSize);
+  border-radius: calc(var(--closedSize) / 2);
+  border: var(--border-width) solid var(--color-text);
+  overflow: hidden;
+  transition:
+    border 0s,
+    0.3s;
+
+  &.isOpened {
+    --margin: 28px;
+
+    width: var(--openedWidth);
+    height: calc(100vh - 2 * var(--margin));
+    border-color: var(--color-accent);
+
+    .contents {
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) .item {
+          transition-delay: #{0.04s + $i * 0.02s};
+        }
+      }
+    }
+  }
+
+  &:not(.isOpened) {
+    .item {
+      padding: 11px;
+    }
+  }
+
+  @include hover {
+    border: var(--border-width) solid var(--color-accent);
+  }
+
+  &.isPinned {
+    --margin: 0px;
+
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 0;
+
+    .content > .item:first-child {
+      margin-bottom: calc(-1 * (var(--padding) + var(--iconSize)));
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+}
+
+.content {
+  width: calc(var(--openedWidth) - 2 * var(--border-width));
+  height: calc(100vh - 2 * var(--margin) - 2 * var(--border-width));
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s;
+}
+
+.list {
+  flex-grow: 1;
+}
+
+.contents {
+  display: contents;
+}
+
+.item {
+  --padding: 16px;
+  --iconSize: 24px;
+
+  padding: var(--padding);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: 0.3s;
+
+  @include hover {
+    color: var(--color-accent);
+  }
+}
+
+.icon {
+  width: var(--iconSize);
+  height: var(--iconSize);
+
+  * {
+    transition: color 0.3s;
+  }
+}
+
+.label {
+  transition: color 0.3s;
+}
+
+.logo {
+  padding: 24px 0;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+}

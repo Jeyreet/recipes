@@ -32,3 +32,15 @@ services:
       - "5000:5000"
     depends_on:
       - db
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    container_name: recipes-client
+    volumes:
+    - ./client:/app
+    - /app/node_modules
+    ports:
+      - "5173:5173"
+    depends_on:
+      - server

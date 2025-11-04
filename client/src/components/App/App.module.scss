@@ -1,0 +1,11 @@
+.app {
+  --openedMenuWidth: 300px;
+
+  background-color: var(--color-app-background);
+  width: 100vw;
+  height: 100vh;
+
+  &.menuPinned {
+    --foo: 0;
+  }
+}
