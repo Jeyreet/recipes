@@ -15,36 +15,14 @@ const Menu = () => {
         </button>
         <div className={ds.logo}>Jeyreet Recipes App</div>
         <ul className={ds.list}>
-          <li className={ds.contents}>
-            <a className={ds.item} href="#">
-              <TopRightArrow className={ds.icon} />
-              <div className={ds.label}>Ссылка на страницу</div>
-            </a>
-          </li>
-          <li className={ds.contents}>
-            <a className={ds.item} href="#">
-              <TopRightArrow className={ds.icon} />
-              <div className={ds.label}>Ссылка на страницу</div>
-            </a>
-          </li>
-          <li className={ds.contents}>
-            <a className={ds.item} href="#">
-              <TopRightArrow className={ds.icon} />
-              <div className={ds.label}>Ссылка на страницу</div>
-            </a>
-          </li>
-          <li className={ds.contents}>
-            <a className={ds.item} href="#">
-              <TopRightArrow className={ds.icon} />
-              <div className={ds.label}>Ссылка на страницу</div>
-            </a>
-          </li>
-          <li className={ds.contents}>
-            <a className={ds.item} href="#">
-              <TopRightArrow className={ds.icon} />
-              <div className={ds.label}>Ссылка на страницу</div>
-            </a>
-          </li>
+          {[...Array(5)].map((_, i) => (
+            <li key={i} className={ds.contents}>
+              <a className={ds.item} href="#">
+                <TopRightArrow className={ds.icon} />
+                <div className={ds.label}>Ссылка на страницу</div>
+              </a>
+            </li>
+          ))}
         </ul>
         <button className={ds.item} onClick={toggleMenuPinned}>
           <Pin className={ds.icon} />
