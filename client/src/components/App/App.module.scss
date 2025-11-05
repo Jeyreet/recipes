@@ -1,11 +1,10 @@
 .app {
-  --openedMenuWidth: 300px;
+  --menuClosedSize: 48px;
+  --menuMargin: 16px;
+  --menuBorderWidth: 2px;
+  --menuOpenedWidth: 300px;
 
   background-color: var(--color-app-background);
   width: 100vw;
   height: 100vh;
-
-  &.menuPinned {
-    --foo: 0;
-  }
 }

@@ -1,13 +1,24 @@
 .centerer {
+  --width: 100vw;
+
   display: flex;
   justify-content: center;
   transition: 0.3s;
 }
 
-.menuPinned {
-  margin-left: var(--openedMenuWidth);
+:global(.menuPinned) .centerer {
+  --width: calc(100vw - var(--menuOpenedWidth));
+
+  margin-left: var(--menuOpenedWidth);
 }
 
 .content {
-  width: calc(100vw - var(--openedMenuWidth));
+  padding-inline: 24px;
+  width: var(--width);
+  height: 100svh;
+  max-width: 1600px;
+  transition: 0.3s;
+  container-type: inline-size;
+  overflow: auto;
+  background-color: var(--color-content-background);
 }

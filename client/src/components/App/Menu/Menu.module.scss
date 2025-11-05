@@ -1,29 +1,25 @@
 @use 'styles/mixins' as *;
 
 .menu {
-  --closedSize: 48px;
-  --margin: 16px;
-  --openedWidth: var(--openedMenuWidth);
-  --border-width: 2px;
-
   background-color: var(--color-menu-background);
   position: fixed;
-  left: var(--margin);
-  top: var(--margin);
-  width: calc(var(--closedSize));
-  height: var(--closedSize);
-  border-radius: calc(var(--closedSize) / 2);
-  border: var(--border-width) solid var(--color-text);
+  left: var(--menuMargin);
+  top: var(--menuMargin);
+  width: calc(var(--menuClosedSize));
+  height: var(--menuClosedSize);
+  border-radius: calc(var(--menuClosedSize) / 2);
+  border: var(--menuBorderWidth) solid var(--color-text);
   overflow: hidden;
+  z-index: 1;
   transition:
     border 0s,
     0.3s;
 
   &.opened {
-    --margin: 28px;
+    --menuMargin: 28px;
 
-    width: var(--openedWidth);
-    height: calc(100vh - 2 * var(--margin));
+    width: var(--menuOpenedWidth);
+    height: calc(100vh - 2 * var(--menuMargin));
     border-color: var(--color-accent);
 
     .contents {
@@ -42,28 +38,34 @@
   }
 
   @include hover {
-    border: var(--border-width) solid var(--color-accent);
+    border: var(--menuBorderWidth) solid var(--color-accent);
   }
+}
 
-  &.pinned {
-    --margin: 0px;
+:global(.menuPinned) .menu {
+  --menuMargin: 0px;
 
-    border-top-color: transparent;
-    border-left-color: transparent;
-    border-bottom-color: transparent;
-    border-radius: 0;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 0;
 
-    .content > .item:first-child {
+  .content {
+    & > .item:first-child {
       margin-bottom: calc(-1 * (var(--padding) + var(--iconSize)));
       opacity: 0;
       pointer-events: none;
+    }
+
+    & > .item:last-child {
+      color: var(--color-accent);
     }
   }
 }
 
 .content {
-  width: calc(var(--openedWidth) - 2 * var(--border-width));
-  height: calc(100vh - 2 * var(--margin) - 2 * var(--border-width));
+  width: calc(var(--menuOpenedWidth) - 2 * var(--menuBorderWidth));
+  height: calc(100vh - 2 * var(--menuMargin) - 2 * var(--menuBorderWidth));
   display: flex;
   flex-direction: column;
   transition: 0.3s;
@@ -92,6 +94,11 @@
   }
 }
 
+:global(.narrowScreen) .content > .item:last-child {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .icon {
   width: var(--iconSize);
   height: var(--iconSize);
@@ -106,7 +113,7 @@
 }
 
 .logo {
-  padding: 24px 0;
+  padding-block: 10px;
   display: flex;
   justify-content: center;
   font-size: 1.5em;

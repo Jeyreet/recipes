@@ -5,10 +5,10 @@ import { useUiStore } from 'stores'
 import ds from './Menu.module.scss'
 
 const Menu = () => {
-  const { isMenuOpened, isMenuPinned, toggleMenuOpened, toggleMenuPinned } = useUiStore()
+  const { isMenuOpened, toggleMenuOpened, toggleMenuPinned } = useUiStore()
 
   return (
-    <nav className={ds.menu + ' ' + (isMenuOpened && ds.opened) + ' ' + (isMenuPinned && ds.pinned)}>
+    <nav className={ds.menu + ' ' + (isMenuOpened && ds.opened)} onClick={e => e.stopPropagation()}>
       <div className={ds.content}>
         <button className={ds.item} onClick={toggleMenuOpened}>
           <Burger className={ds.icon} />
