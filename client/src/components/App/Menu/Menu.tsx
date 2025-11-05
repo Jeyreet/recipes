@@ -1,18 +1,16 @@
 import Burger from 'icons/burger.svg'
 import Pin from 'icons/pin.svg'
 import TopRightArrow from 'icons/top-right-arrow.svg'
-import { MouseEventHandler, useState } from 'react'
+import { useUiStore } from 'stores'
 import ds from './Menu.module.scss'
 
-const Menu = ({ isPinned, toggleIsPinned }: { isPinned: boolean; toggleIsPinned: MouseEventHandler }) => {
-  const [isOpened, setIsOpened] = useState(false)
-
-  const toggleIsMenuOpened = () => setIsOpened(prev => !prev)
+const Menu = () => {
+  const { isMenuOpened, isMenuPinned, toggleMenuOpened, toggleMenuPinned } = useUiStore()
 
   return (
-    <nav className={ds.menu + ' ' + (isOpened && ds.isOpened) + ' ' + (isPinned && ds.isPinned)}>
+    <nav className={ds.menu + ' ' + (isMenuOpened && ds.opened) + ' ' + (isMenuPinned && ds.pinned)}>
       <div className={ds.content}>
-        <button className={ds.item} onClick={toggleIsMenuOpened}>
+        <button className={ds.item} onClick={toggleMenuOpened}>
           <Burger className={ds.icon} />
         </button>
         <div className={ds.logo}>Jeyreet Recipes App</div>
@@ -48,7 +46,7 @@ const Menu = ({ isPinned, toggleIsPinned }: { isPinned: boolean; toggleIsPinned:
             </a>
           </li>
         </ul>
-        <button className={ds.item} onClick={toggleIsPinned}>
+        <button className={ds.item} onClick={toggleMenuPinned}>
           <Pin className={ds.icon} />
         </button>
       </div>

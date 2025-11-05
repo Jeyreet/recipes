@@ -19,7 +19,7 @@
     border 0s,
     0.3s;
 
-  &.isOpened {
+  &.opened {
     --margin: 28px;
 
     width: var(--openedWidth);
@@ -35,7 +35,7 @@
     }
   }
 
-  &:not(.isOpened) {
+  &:not(.opened) {
     .item {
       padding: 11px;
     }
@@ -45,7 +45,7 @@
     border: var(--border-width) solid var(--color-accent);
   }
 
-  &.isPinned {
+  &.pinned {
     --margin: 0px;
 
     border-top-color: transparent;
