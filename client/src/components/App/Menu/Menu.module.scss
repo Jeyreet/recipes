@@ -9,7 +9,7 @@
   height: var(--menuClosedSize);
   border-radius: calc(var(--menuClosedSize) / 2);
   border: var(--menuBorderWidth) solid var(--color-text);
-  overflow: hidden;
+  overflow: clip;
   z-index: 1;
   transition:
     border 0s,
@@ -32,6 +32,10 @@
   }
 
   &:not(.opened) {
+    &:has(.content > .item:first-child:focus-visible) {
+      outline-color: var(--color-accent);
+    }
+
     .item {
       padding: 11px;
     }
@@ -88,6 +92,10 @@
   align-items: center;
   gap: 16px;
   transition: 0.3s;
+
+  &:focus-visible {
+    outline-color: var(--color-accent);
+  }
 
   @include hover {
     color: var(--color-accent);

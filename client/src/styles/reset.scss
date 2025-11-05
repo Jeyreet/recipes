@@ -3,8 +3,10 @@ body * {
   box-sizing: border-box;
   margin: 0;
   box-shadow: none;
-  outline: none;
-  outline-offset: 0;
+  outline-offset: 2px;
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: transparent;
   border: none;
   background: none;
   padding: 0;

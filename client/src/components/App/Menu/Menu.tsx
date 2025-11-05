@@ -5,26 +5,36 @@ import { useUiStore } from 'stores'
 import ds from './Menu.module.scss'
 
 const Menu = () => {
-  const { isMenuOpened, toggleMenuOpened, toggleMenuPinned } = useUiStore()
+  const { isMenuOpened, isMenuPinned, toggleMenuOpened, toggleMenuPinned } = useUiStore()
 
   return (
     <nav className={ds.menu + ' ' + (isMenuOpened && ds.opened)} onClick={e => e.stopPropagation()}>
       <div className={ds.content}>
-        <button className={ds.item} onClick={toggleMenuOpened}>
+        <button
+          className={ds.item}
+          onClick={toggleMenuOpened}
+          inert={isMenuPinned}
+          aria-label={isMenuOpened ? 'Close menu' : 'Open menu'}
+        >
           <Burger className={ds.icon} />
         </button>
         <div className={ds.logo}>Jeyreet Recipes App</div>
         <ul className={ds.list}>
           {[...Array(5)].map((_, i) => (
             <li key={i} className={ds.contents}>
-              <a className={ds.item} href="#">
+              <a className={ds.item} href="#" inert={!isMenuOpened}>
                 <TopRightArrow className={ds.icon} />
                 <div className={ds.label}>Ссылка на страницу</div>
               </a>
             </li>
           ))}
         </ul>
-        <button className={ds.item} onClick={toggleMenuPinned}>
+        <button
+          className={ds.item}
+          onClick={toggleMenuPinned}
+          inert={!isMenuOpened}
+          aria-label={isMenuPinned ? 'Unpin menu' : 'Pin menu'}
+        >
           <Pin className={ds.icon} />
         </button>
       </div>

@@ -1,9 +1,12 @@
+import { useUiStore } from 'stores'
 import ds from './Content.module.scss'
 import { Title } from './Title'
 
 const Content = () => {
+  const { isMenuOpened, isMenuPinned } = useUiStore()
+
   return (
-    <div className={ds.centerer}>
+    <div className={ds.centerer} inert={!isMenuPinned && isMenuOpened}>
       <div className={ds.content}>
         <Title />
         <div>
