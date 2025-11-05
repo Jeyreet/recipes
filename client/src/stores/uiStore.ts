@@ -17,7 +17,7 @@ type UiState = {
   toggleMenuOpened: () => void
   toggleMenuPinned: () => void
 
-  setTitleText: (text: string) => void
+  setTitleText: (_text: string) => void
 }
 
 const useUiStore = create<UiState>()(

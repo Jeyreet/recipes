@@ -21,7 +21,7 @@ module.exports = [
     rules: {
       'prettier/prettier': ['error'],
       '@typescript-eslint/explicit-function-return-type': 'off',
-      'no-unused-vars': 'warn',
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       'no-fallthrough': 'error',
     },
     settings: {
