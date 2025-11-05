@@ -13,57 +13,43 @@ const Menu = ({ isPinned, toggleIsPinned }: { isPinned: boolean; toggleIsPinned:
     <nav className={ds.menu + ' ' + (isOpened && ds.isOpened) + ' ' + (isPinned && ds.isPinned)}>
       <div className={ds.content}>
         <button className={ds.item} onClick={toggleIsMenuOpened}>
-          <div className={ds.icon}>
-            <Burger />
-          </div>
+          <Burger className={ds.icon} />
         </button>
         <div className={ds.logo}>Jeyreet Recipes App</div>
         <ul className={ds.list}>
           <li className={ds.contents}>
             <a className={ds.item} href="#">
-              <div className={ds.icon}>
-                <TopRightArrow />
-              </div>
+              <TopRightArrow className={ds.icon} />
               <div className={ds.label}>Ссылка на страницу</div>
             </a>
           </li>
           <li className={ds.contents}>
             <a className={ds.item} href="#">
-              <div className={ds.icon}>
-                <TopRightArrow />
-              </div>
+              <TopRightArrow className={ds.icon} />
               <div className={ds.label}>Ссылка на страницу</div>
             </a>
           </li>
           <li className={ds.contents}>
             <a className={ds.item} href="#">
-              <div className={ds.icon}>
-                <TopRightArrow />
-              </div>
+              <TopRightArrow className={ds.icon} />
               <div className={ds.label}>Ссылка на страницу</div>
             </a>
           </li>
           <li className={ds.contents}>
             <a className={ds.item} href="#">
-              <div className={ds.icon}>
-                <TopRightArrow />
-              </div>
+              <TopRightArrow className={ds.icon} />
               <div className={ds.label}>Ссылка на страницу</div>
             </a>
           </li>
           <li className={ds.contents}>
             <a className={ds.item} href="#">
-              <div className={ds.icon}>
-                <TopRightArrow />
-              </div>
+              <TopRightArrow className={ds.icon} />
               <div className={ds.label}>Ссылка на страницу</div>
             </a>
           </li>
         </ul>
         <button className={ds.item} onClick={toggleIsPinned}>
-          <div className={ds.icon}>
-            <Pin />
-          </div>
+          <Pin className={ds.icon} />
         </button>
       </div>
     </nav>
