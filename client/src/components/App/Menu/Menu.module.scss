@@ -16,7 +16,7 @@
     0.3s;
 
   &.opened {
-    --menuMargin: 28px;
+    --menuMargin: var(--menuOpenedMargin);
 
     width: var(--menuOpenedWidth);
     height: calc(100vh - 2 * var(--menuMargin));

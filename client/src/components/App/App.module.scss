@@ -1,8 +1,9 @@
 .app {
   --menuClosedSize: 48px;
   --menuMargin: 16px;
+  --menuOpenedMargin: 28px;
   --menuBorderWidth: 2px;
-  --menuOpenedWidth: 300px;
+  --menuOpenedWidth: min(calc(100vw - var(--menuOpenedMargin) * 2), 300px);
 
   background-color: var(--color-app-background);
   width: 100vw;
