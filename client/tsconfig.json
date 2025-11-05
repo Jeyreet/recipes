@@ -41,7 +41,10 @@
       "utils/*": ["./src/utils/*"],
 
       "hooks": ["./src/hooks"],
-      "hooks/*": ["./src/hooks/*"]
+      "hooks/*": ["./src/hooks/*"],
+
+      "stores": ["./src/stores"],
+      "stores/*": ["./src/stores/*"]
     }
   },
   "include": ["src"],
