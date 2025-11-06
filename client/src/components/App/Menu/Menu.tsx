@@ -1,13 +1,13 @@
-import Burger from 'icons/burger.svg'
-import Pin from 'icons/pin.svg'
-import TopRightArrow from 'icons/top-right-arrow.svg'
+import Burger from 'images/icons/burger.svg'
+import Pin from 'images/icons/pin.svg'
+import TopRightArrow from 'images/icons/top-right-arrow.svg'
 import { Link } from 'react-router-dom'
-import { useUiStore } from 'stores'
+import { useUiStore } from 'stores/useUiStore'
 import { routes } from '../routes'
 import ds from './Menu.module.scss'
 
 const Menu = () => {
-  const { isMenuOpened, isMenuPinned, toggleMenuOpened, toggleMenuPinned } = useUiStore()
+  const { isMenuOpened, isMenuPinned, closeMenu, toggleMenuOpened, toggleMenuPinned } = useUiStore()
 
   return (
     <nav className={ds.menu + ' ' + (isMenuOpened && ds.opened)} onClick={e => e.stopPropagation()}>
@@ -24,7 +24,7 @@ const Menu = () => {
         <ul className={ds.list}>
           {routes.map(({ path, label }) => (
             <li key={path} className={ds.contents}>
-              <Link className={ds.item} to={path} inert={!isMenuOpened}>
+              <Link className={ds.item} to={path} inert={!isMenuOpened} onClick={closeMenu}>
                 <TopRightArrow className={ds.icon} />
                 <div className={ds.label}>{label}</div>
               </Link>

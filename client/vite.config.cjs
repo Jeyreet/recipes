@@ -24,9 +24,8 @@ module.exports = defineConfig({
     alias: {
       assets: path.resolve(__dirname, 'src/assets'),
       images: path.resolve(__dirname, 'src/assets/images'),
-      icons: path.resolve(__dirname, 'src/assets/images/icons'),
+      fonts: path.resolve(__dirname, 'src/assets/fonts'),
       components: path.resolve(__dirname, 'src/components'),
-      App: path.resolve(__dirname, 'src/components/App'),
       ui: path.resolve(__dirname, 'src/components/ui'),
       blocks: path.resolve(__dirname, 'src/components/blocks'),
       pages: path.resolve(__dirname, 'src/components/pages'),

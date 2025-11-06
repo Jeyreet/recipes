@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { Navigate } from 'react-router-dom'
-import { useUiStore } from 'stores'
+import { useUiStore } from 'stores/useUiStore'
 import { routes } from '../routes'
 import ds from './Content.module.scss'
 import { Title } from './Title'

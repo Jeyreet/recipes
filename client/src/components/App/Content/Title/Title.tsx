@@ -1,12 +1,12 @@
-import { useUiStore } from 'stores'
+import { useUiStore } from 'stores/useUiStore'
 import ds from './Title.module.scss'
 
 const Title = () => {
-  const { titleText } = useUiStore()
+  const { pageTitle } = useUiStore()
 
   return (
     <div className={ds.centerer}>
-      <h2 className={ds.title}>{titleText}</h2>
+      <h2 className={ds.title}>{pageTitle}</h2>
       <div className={ds.blur}></div>
     </div>
   )

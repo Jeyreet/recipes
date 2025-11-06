@@ -1,4 +1,4 @@
-import { useUiStore } from 'stores'
+import { useUiStore } from 'stores/useUiStore'
 import s from './App.module.scss'
 import { Content } from './Content'
 import { Menu } from './Menu'

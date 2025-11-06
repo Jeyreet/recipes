@@ -10,14 +10,14 @@ type UiState = {
   isMenuPinned: boolean
   wasMenuPinned: boolean
 
-  titleText: string
+  pageTitle: string
 
   openMenu: () => void
   closeMenu: () => void
   toggleMenuOpened: () => void
   toggleMenuPinned: () => void
 
-  setTitleText: (_text: string) => void
+  setPageTitle: (_pageTitle: string) => void
 }
 
 const useUiStore = create<UiState>()(
@@ -29,7 +29,7 @@ const useUiStore = create<UiState>()(
       isMenuPinned: false,
       wasMenuPinned: false,
 
-      titleText: 'Загрузка...',
+      pageTitle: 'Загрузка...',
 
       openMenu: () => set({ isMenuOpened: true }),
       closeMenu: () => set(s => ({ isMenuOpened: s.isMenuPinned })),
@@ -39,7 +39,7 @@ const useUiStore = create<UiState>()(
       unpinMenu: () => set({ isMenuPinned: false, wasMenuPinned: false }),
       toggleMenuPinned: () => set(s => ({ isMenuPinned: s.isMenuOpened ? !s.isMenuPinned : false })),
 
-      setTitleText: text => set({ titleText: text }),
+      setPageTitle: pageTitle => set({ pageTitle }),
     }),
     {
       name: 'ui-store',

@@ -15,36 +15,16 @@
     "paths": {
       "assets/*": ["./src/assets/*"],
       "images/*": ["./src/assets/images/*"],
-      "icons/*": ["./src/assets/images/icons/*"],
-      "fonts*": ["./src/assets/fonts/*"],
-      "styles/*": ["./src/styles/*"],
-
-      "components": ["./src/components"],
+      "fonts/*": ["./src/assets/fonts/*"],
       "components/*": ["./src/components/*"],
-
-      "App": ["./src/components/App"],
-      "App/*": ["./src/components/App/*"],
-
-      "ui": ["./src/components/ui"],
       "ui/*": ["./src/components/ui/*"],
-
-      "blocks": ["./src/components/blocks"],
       "blocks/*": ["./src/components/blocks/*"],
-
-      "pages": ["./src/components/pages"],
       "pages/*": ["./src/components/pages/*"],
-
-      "types": ["./src/types"],
       "types/*": ["./src/types/*"],
-
-      "utils": ["./src/utils"],
       "utils/*": ["./src/utils/*"],
-
-      "hooks": ["./src/hooks"],
       "hooks/*": ["./src/hooks/*"],
-
-      "stores": ["./src/stores"],
-      "stores/*": ["./src/stores/*"]
+      "stores/*": ["./src/stores/*"],
+      "styles/*": ["./src/styles/*"]
     }
   },
   "include": ["src"],
