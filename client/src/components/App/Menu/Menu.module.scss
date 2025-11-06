@@ -5,7 +5,7 @@
   position: fixed;
   left: var(--menuMargin);
   top: var(--menuMargin);
-  width: calc(var(--menuClosedSize));
+  width: var(--menuClosedSize);
   height: var(--menuClosedSize);
   border-radius: calc(var(--menuClosedSize) / 2);
   border: var(--menuBorderWidth) solid var(--color-text);
