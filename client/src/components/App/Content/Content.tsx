@@ -1,4 +1,7 @@
+import { Route, Routes } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { useUiStore } from 'stores'
+import { routes } from '../routes'
 import ds from './Content.module.scss'
 import { Title } from './Title'
 
@@ -9,80 +12,12 @@ const Content = () => {
     <div className={ds.centerer} inert={!isMenuPinned && isMenuOpened}>
       <div className={ds.content}>
         <Title />
-        <div>
-          <p style={{ fontSize: 100 }}>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-          <p>PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE PAGE</p>
-        </div>
+        <Routes>
+          {routes.map(({ path, Component }) => (
+            <Route key={path} path={path} element={<Component />} />
+          ))}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
       </div>
     </div>
   )

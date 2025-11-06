@@ -25,14 +25,14 @@
       "App": ["./src/components/App"],
       "App/*": ["./src/components/App/*"],
 
-      "ui": ["./src/ui"],
-      "ui/*": ["./src/ui/*"],
+      "ui": ["./src/components/ui"],
+      "ui/*": ["./src/components/ui/*"],
 
-      "blocks": ["./src/blocks"],
-      "blocks/*": ["./src/blocks/*"],
+      "blocks": ["./src/components/blocks"],
+      "blocks/*": ["./src/components/blocks/*"],
 
-      "pages": ["./src/pages"],
-      "pages/*": ["./src/pages/*"],
+      "pages": ["./src/components/pages"],
+      "pages/*": ["./src/components/pages/*"],
 
       "types": ["./src/types"],
       "types/*": ["./src/types/*"],

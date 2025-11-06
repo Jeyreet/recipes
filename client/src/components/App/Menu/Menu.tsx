@@ -1,7 +1,9 @@
 import Burger from 'icons/burger.svg'
 import Pin from 'icons/pin.svg'
 import TopRightArrow from 'icons/top-right-arrow.svg'
+import { Link } from 'react-router-dom'
 import { useUiStore } from 'stores'
+import { routes } from '../routes'
 import ds from './Menu.module.scss'
 
 const Menu = () => {
@@ -20,12 +22,12 @@ const Menu = () => {
         </button>
         <div className={ds.logo}>Jeyreet Recipes App</div>
         <ul className={ds.list}>
-          {[...Array(5)].map((_, i) => (
-            <li key={i} className={ds.contents}>
-              <a className={ds.item} href="#" inert={!isMenuOpened}>
+          {routes.map(({ path, label }) => (
+            <li key={path} className={ds.contents}>
+              <Link className={ds.item} to={path} inert={!isMenuOpened}>
                 <TopRightArrow className={ds.icon} />
-                <div className={ds.label}>Ссылка на страницу</div>
-              </a>
+                <div className={ds.label}>{label}</div>
+              </Link>
             </li>
           ))}
         </ul>
